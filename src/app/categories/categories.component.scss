@@ -1,0 +1,13 @@
+img{
+    height: 300px;
+    object-fit:cover ;
+}
+.brdr{
+    border-radius: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.brdr:hover{
+
+    box-shadow: 1px 1px 10px #4fa74f;
+}

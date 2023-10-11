@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid px-5">
+        <img src="../../assets/images/freshcart-logo.svg" width="250px" alt="logo">
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul *ngIf="islogged" class="navbar-nav px-3 gap-3 mx-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="home">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="cart">cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="products">products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="wishlist">wishlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="categories">categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="brands">brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="cart"><i class="fa-solid fa-basket-shopping"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav px-3 ms-auto mt-2 mt-lg-0">
+                <!-- <li class="nav-item">
+                    <a class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa-brands fa-discord"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa-brands fa-twitter"></i></a>
+                </li> -->
+                <li *ngIf="!islogged" class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="register">register</a>
+                </li>
+                <li *ngIf="!islogged" class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="login">login</a>
+                </li>
+                <li *ngIf="islogged" class="nav-item">
+                    <a (click)="signout()" class="nav-link text-danger signout" routerLink="login">signout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

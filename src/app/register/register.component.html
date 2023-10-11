@@ -1,0 +1,36 @@
+<div class="container py-5">
+    <div class="w-75 mx-auto">
+        <h2>Register now:</h2>
+        <form (ngSubmit)="sendData(register)"  [formGroup]="register" class="d-flex flex-column gap-3">
+            <div>
+                <label class="pb-1" for="name">name</label>
+                <input formControlName="name" type="text" placeholder="your name" class="form-control" id="name">
+                <div *ngIf="register.get('name')?.errors&&register.get('name')?.touched" class="alert alert-danger mt-2">
+                    <p *ngIf="register.get('name')?.getError('required')">name is required!</p>
+                    <p *ngIf=" register.get('name')?.getError('minlength')">min length is 3!</p>
+                    <p *ngIf="register.get('name')?.getError('maxlength')">max length is 20!</p>
+                </div>
+            </div>
+            <div>
+                <label class=" pb-1" for="Email">Email</label>
+                        <input formControlName="email" type="text" placeholder="your Email" class="form-control"
+                            id="Email">
+                </div>
+                <div>
+                    <label class="pb-1" for="password">password</label>
+                    <input formControlName="password" type="password" placeholder="your password" class="form-control"
+                        id="password">
+                </div>
+                <div>
+                    <label class="pb-1" for="rePassword">rePassword</label>
+                    <input formControlName="rePassword" type="password" placeholder="your rePassword" class="form-control"
+                        id="rePassword">
+                </div>
+                <div>
+                    <label class="pb-1" for="phone">phone</label>
+                    <input formControlName="phone" type="text" placeholder="your phone" class="form-control" id="phone">
+                </div>
+                <button [disabled]="register.invalid" class="btn bg-main text-white w-25 my-2">register</button>
+        </form>
+    </div>
+</div>

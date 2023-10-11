@@ -1,0 +1,18 @@
+<div class="container p-5">
+    <div class="row gy-3">
+        <div *ngFor="let item of categoryList" class="col-md-4 overflow-hidden  p-2">
+            <div (click)="getSubcategory1(item._id,item.name)" class="brdr border-1 border">
+                <img alt="" class="img-fluid ratio-4x3 w-100" style="height: 300px;" [src]="item.image">
+                <h2 class="text-main text-center">{{item.name}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row gy-3">
+        <h2 class="text-main text-center">{{name}}</h2>
+        <div *ngFor="let item of subCategoryList" class="col-md-4 overflow-hidden  p-2">
+            <div class="brdr py-4 px-2 border-1 border">
+                <h2 class="fs-3 fw-bold text-center">{{item.name}}</h2>
+            </div>
+        </div>
+    </div>
+</div>

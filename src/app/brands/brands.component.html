@@ -1,0 +1,35 @@
+<div class="container p-5 position-relative">
+    <h2 class=" pb-5 fs-1 fw-bold text-main text-center">All Brands</h2>
+    <div class="row gy-3">
+        <div  *ngFor="let item of brandsList let i=index" class="col-md-3 overflow-hidden  p-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div (click)="test(i)" class="brdr border-1 border py-2">
+                <img alt="" class="w-100" [src]="item.image">
+                <h5 class="text-center py-2">{{item.name}}</h5>
+            </div>
+        </div>
+    </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row px-3">
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <h2 class="fs-1 fw-bold text-main">{{brandsList[index].name}}</h2>
+                    <p>{{brandsList[index].name}}</p>
+                </div>
+                <div class="col-md-6">
+                    <img alt="" class="w-100" [src]="brandsList[index].image">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

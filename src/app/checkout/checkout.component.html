@@ -1,0 +1,22 @@
+<div class="container py-5">
+    <div class="w-75 mx-auto">
+        <h2>shipping info:</h2>
+        <form (ngSubmit)="sendData(register)"  [formGroup]="register" class="d-flex flex-column gap-3">
+            <div>
+                <label class=" pb-1" for="details">details </label>
+                        <input formControlName="details" type="text" placeholder="your details  " class="form-control"
+                            id="  ">
+                </div>
+                <div>
+                    <label class="pb-1" for="phone">phone</label>
+                    <input formControlName="phone" type="phone" placeholder="your phone" class="form-control"
+                        id="phone">
+                </div>
+                <div>
+                    <label class="pb-1" for="city">city</label>
+                    <input formControlName="city" type="text" placeholder="your city" class="form-control" id="city">
+                </div>
+                <button [disabled]="register.invalid" class="btn bg-main text-white w-25 my-2">register</button>
+        </form>
+    </div>
+</div>

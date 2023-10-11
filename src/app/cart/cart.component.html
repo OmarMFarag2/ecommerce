@@ -1,0 +1,29 @@
+<div class="container bg-main-light p-5 m-5">
+
+    <div *ngIf="!isEmpty" class="d-flex justify-content-between">
+        <h2 class="fs-1" >Cart</h2 >
+        <button [routerLink]="['/checkout',cartdata.data?._id]" class="btn text-white bg-main fs-4">Checkout</button>
+    </div>
+    <h2 class="fs-2 text-main" *ngIf="!isEmpty">Total price: {{cartdata.data.totalCartPrice}} LE</h2>
+    <h2 class="text-center fs-1" *ngIf="isEmpty">Your cart is empty!</h2>
+    <div class="row gy-3 pt-3" *ngFor="let item of cartdata.data?.products">
+        <div class="col-md-2">
+            <div>
+                <img [src]="item.product.imageCover"  class="w-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-10 d-flex align-items-center justify-content-between">
+            <div>
+                <p>{{item.product.title}}</p>
+                <p>{{item.price}} LE</p>
+                <button (click)="removeItem(item.product.id)" class="btn text-white bg-danger"><i class="fa-solid fa-trash"></i> Remove</button>
+            </div>
+            <div>
+                <p class="text-center">Quantity</p>
+                <button (click)="update(item.count+1,item.product.id)" class="btn btn-outline-success">+</button>
+                <span class="mx-2 btn-outline-success">{{item.count}}</span>
+                <button (click)="update(item.count-1,item.product.id)" class="btn btn-outline-success">-</button>
+            </div>
+        </div>
+    </div>
+</div>

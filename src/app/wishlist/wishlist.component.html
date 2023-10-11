@@ -1,0 +1,24 @@
+<div class="container bg-main-light p-5 m-5">
+
+    <div *ngIf="!isEmpty" class="d-flex justify-content-between">
+        <h2 class="fs-1" >My wishlist</h2 >
+    </div>
+    <h2 class="text-center fs-1" *ngIf="isEmpty">Your wishlist is empty!</h2>
+    <div class="row gy-3 my-2" *ngFor="let item of wishlist">
+        <div class="col-md-2">
+            <div>
+                <img [src]="item.imageCover"  class="w-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-10 d-flex align-items-center justify-content-between">
+            <div>
+                <p class="fs-5 fw-bold">{{item.title}}</p>
+                <p  class="fw-bold text-main">{{item.price}} LE</p>
+                <button (click)="remove(item.id)" class="btn p-0 m-0 text-start text-danger"><i class="fa-solid fa-trash"></i> Remove</button>
+            </div>
+            <div>
+                <button (click)="add(item.id)" class="btn color">add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>

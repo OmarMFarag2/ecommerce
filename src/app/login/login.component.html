@@ -1,0 +1,23 @@
+<div class="container py-5">
+    <div class="w-75 mx-auto">
+        <h2>login now:</h2>
+        <form (ngSubmit)="sendData(login)" [formGroup]="login" class="d-flex flex-column gap-3">
+            <div>
+                <label class="pb-1" for="email">email</label>
+                <input formControlName="email" type="text" placeholder="your email" class="form-control" id="email">
+                <div *ngIf="login.get('email')?.errors&&login.get('email')?.touched" class="alert alert-danger mt-2">
+                    <p *ngIf="login.get('email')?.getError('required')">email is required!</p>
+                    <p *ngIf=" login.get('email')?.getError('minlength')">min length is 3!</p>
+                    <p *ngIf="login.get('email')?.getError('maxlength')">max length is 20!</p>
+                </div>
+            </div>
+            <div>
+                <label class=" pb-1" for="password">password</label>
+                <input formControlName="password" type="password" placeholder="your password" class="form-control"
+                    id="password">
+            </div>
+            <a class="fw-bold cursor-pointer" routerLink="/forgot-password">Forgot password?</a>
+            <button [disabled]="login.invalid" class="btn bg-main text-white w-25 my-2">login</button>
+        </form>
+    </div>
+</div>

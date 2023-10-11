@@ -1,0 +1,11 @@
+.icons i{
+    color: #dc3545;
+    border-radius: 50%;
+}
+.icons i:hover{
+    transform: scale(1.1);
+    background-color: #dc354632;
+}
+.visible{
+    display: block !important;
+}
